@@ -3,7 +3,6 @@ import { useMainButton, useThemeParams } from '@tma.js/sdk-react';
 import Main from './components/main';
 
 export default function App() {
-  const [isReady, setIsReady] = useState(false);
   const mainButton = useMainButton();
   const themeParams = useThemeParams();
 
