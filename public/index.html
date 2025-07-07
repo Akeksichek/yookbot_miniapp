@@ -4,15 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Подробнее о товаре</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.Telegram?.WebApp) {
+        console.log('Telegram WebApp detected, version:', Telegram.WebApp.version);
+        Telegram.WebApp.ready();
+        Telegram.WebApp.expand();
+        window.debugTelegram = () => {
+          console.log('WebApp state:', {
+            initData: Telegram.WebApp.initData,
+            themeParams: Telegram.WebApp.themeParams,
+            platform: Telegram.WebApp.platform
+          });
+        };
+      } else {
+        console.warn('Telegram WebApp not found. Running in standalone mode');
+      }
+    });
+  </script>
 </head>
-<script>
-  if (window.Telegram && window.Telegram.WebApp) {
-    Telegram.WebApp.ready();
-    Telegram.WebApp.expand();
-  } else {
-    console.warn('Telegram WebApp not detected');
-  }
-</script>
 <body>
   <div id="root"></div>
 </body>
