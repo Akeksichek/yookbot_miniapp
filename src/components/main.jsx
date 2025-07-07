@@ -17,7 +17,7 @@ export default function Main() {
     
     setLoading(true);
     try {
-      const apiKey = 'API_KEY';
+      const apiKey = process.env.SCRAPER_API_KEY;
       const amazonUrl = `https://www.amazon.com/s?k=${encodeURIComponent(productName)}`;
       const apiUrl = `https://api.scraperapi.com/?api_key=${apiKey}&url=${encodeURIComponent(amazonUrl)}`;
       
