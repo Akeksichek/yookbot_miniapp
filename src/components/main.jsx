@@ -5,13 +5,11 @@ export default function Main() {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // Получаем название товара из URL
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     setProductName(params.get('product') || 'iPhone 15');
   }, []);
 
-  // Поиск на Amazon через ScraperAPI
   const searchAmazon = async () => {
     if (!productName) return;
     

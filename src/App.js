@@ -1,27 +1,27 @@
-import { useEffect } from 'react';
-import { MainButton, ThemeParams } from '@tma.js/sdk';
+import { useMainButton, useThemeParams } from '@tma.js/sdk-react';
+import Main from './components/main';
 
 export default function App() {
+  const mainButton = useMainButton();
+  const themeParams = useThemeParams();
+
   useEffect(() => {
-    const mainButton = new MainButton();
     mainButton
-      .setText('Тестовая кнопка')
-      .setBackgroundColor(ThemeParams.backgroundColor || '#0000ff')
+      .setText('Поиск товаров')
+      .setBackgroundColor(themeParams.buttonColor || '#0000ff')
       .show();
 
     return () => mainButton.hide();
-  }, []);
+  }, [mainButton, themeParams]);
 
   return (
     <div style={{
       padding: '20px',
-      textAlign: 'center',
-      backgroundColor: ThemeParams.backgroundColor || '#ffffff',
-      color: ThemeParams.textColor || '#000000',
+      backgroundColor: themeParams.backgroundColor || '#ffffff',
+      color: themeParams.textColor || '#000000',
       minHeight: '100vh'
     }}>
-      <h1>Тестовый мини апп</h1>
-      <p>Работай уже</p>
+      <Main />
     </div>
   );
 }
