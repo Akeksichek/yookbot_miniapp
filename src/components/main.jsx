@@ -10,6 +10,7 @@ export default function Main() {
     setProductName(params.get('product') || 'iPhone 15');
   }, []);
 
+  // eslint-disable-next-line
   const searchAmazon = async () => {
     if (!productName) return;
     
@@ -48,7 +49,7 @@ export default function Main() {
 
   useEffect(() => {
     searchAmazon();
-  }, [productName]);
+  }, [productName, searchAmazon]);
 
   return (
     <div style={{ padding: '20px' }}>
