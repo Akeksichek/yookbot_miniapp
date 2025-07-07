@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Подробнее о товаре</title>
 </head>
+<script>
+  if (window.Telegram && window.Telegram.WebApp) {
+    Telegram.WebApp.ready();
+    Telegram.WebApp.expand();
+  } else {
+    console.warn('Telegram WebApp not detected');
+  }
+</script>
 <body>
   <div id="root"></div>
 </body>
