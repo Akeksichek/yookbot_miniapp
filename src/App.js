@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useMainButton, useThemeParams } from '@tma.js/sdk-react';
 import Main from './components/main';
 
